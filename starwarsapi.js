@@ -1,8 +1,6 @@
 var starWarsPeopleList = document.querySelector('#list1');
-var starWarsPeopleList2 = document.querySelector('#list2');
 var randomNum;
-var p1;
-var p2;
+
 var films;
 
 
@@ -16,19 +14,29 @@ var films;
     .then(function(json){
     let people=json.results;
 
- for(const p of people){// p is the person each "people" is refering to.
+ for(p of people){// p is the person each "people" is refering to.
  let listItem = document.createElement('button');// this is making a button for each name populated
  listItem.innerHTML= p.name;// this is naming each button the name of each p, or "people"
- listItem.id=p.name;
- listItem.setAttribute('data-films',p.films);
+
+ listItem.setAttribute('data-films',p.films);// this is appending our data films to each of our list items
+// var movies=p.films;// this is placing data
  starWarsPeopleList.appendChild(listItem); 
 
  listItem.addEventListener('click',revealList);
  function revealList(){
-     let filmLink=listItem.dataset;
-     filmLink=document.createElement("li");
-     filmLink.innerHTML=filmLink.name;
-     starWarsPeopleList.appendChild(filmLink);
+     for(var i=0;i<=p.films.length;i++){
+     let filmLink=p.films[i];
+     filmLink=document.createElement("li"); 
+                 
+     filmLink.innerHTML=p.films[i];
+     let filmTag=document.createElement("a");
+     filmTag.setAttribute('href',filmLink.innerHTML);
+     filmTag.setAttribute('target','_blank');
+     filmTag.appendChild(filmLink);
+     starWarsPeopleList.appendChild(filmTag);
+    }
+
+   
     }
 }})
 

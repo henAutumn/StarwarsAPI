@@ -1,0 +1,25 @@
+@font-face { font-family:Deathstar; src: url('./assets/Death Star.otf'); } 
+
+
+body{
+    background-image: url("assets/146605-star-wars-star-background-1920x1080-desktop.jpg")
+}
+p{
+    text-align: center;
+    color:white;
+}
+
+.title{
+    text-align: center;
+    font-family: Deathstar;
+    font-size: 40em;
+    color:yellow;
+}
+
+button{
+    color:white;
+    
+}
+li{
+    color:white;
+}
